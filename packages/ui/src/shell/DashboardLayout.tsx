@@ -15,6 +15,8 @@ export interface DashboardLayoutProps {
   notifications?: TopNavigationProps['notifications'];
   user?: TopNavigationProps['user'];
   onSignOut?: () => void;
+  onProfileClick?: () => void;
+  onSettingsClick?: () => void;
   children: React.ReactNode;
 }
 
@@ -31,6 +33,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   notifications,
   user,
   onSignOut,
+  onProfileClick,
+  onSettingsClick,
   children,
 }) => {
   const [collapsed, setCollapsed] = React.useState(false);
@@ -80,6 +84,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
           notifications={notifications}
           user={user}
           onSignOut={onSignOut}
+          onProfileClick={onProfileClick}
+          onSettingsClick={onSettingsClick}
           dir={dir}
           onToggleDir={toggleDir}
           theme={theme}
