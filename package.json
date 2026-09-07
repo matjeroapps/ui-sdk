@@ -1,0 +1,16 @@
+{
+  "name": "matjerhub-ui-sdk-root",
+  "private": true,
+  "workspaces": [
+    "packages/ui"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
