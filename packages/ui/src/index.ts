@@ -1,46 +1,46 @@
 // Design Tokens
-export * from './tokens';
+export * from './tokens/index.js';
 
 // Base Components
-export * from './components/Button';
-export * from './components/Input';
-export * from './components/Select';
-export * from './components/Checkbox';
-export * from './components/Radio';
-export * from './components/Card';
-export * from './components/Badge';
-export * from './components/Dialog';
-export * from './components/Drawer';
-export * from './components/Tabs';
-export * from './components/Dropdown';
-export * from './components/Toast';
-export * from './components/Alert';
+export * from './components/Button.js';
+export * from './components/Input.js';
+export * from './components/Select.js';
+export * from './components/Checkbox.js';
+export * from './components/Radio.js';
+export * from './components/Card.js';
+export * from './components/Badge.js';
+export * from './components/Dialog.js';
+export * from './components/Drawer.js';
+export * from './components/Tabs.js';
+export * from './components/Dropdown.js';
+export * from './components/Toast.js';
+export * from './components/Alert.js';
 
 // Data Components
-export * from './components/Table';
-export * from './components/Pagination';
-export * from './components/Skeleton';
-export * from './states/EmptyState';
+export * from './components/Table.js';
+export * from './components/Pagination.js';
+export * from './components/Skeleton.js';
+export * from './states/EmptyState.js';
 
 // Layout Primitives
-export * from './layout/Container';
-export * from './layout/Stack';
-export * from './layout/Grid';
-export * from './layout/PageHeader';
+export * from './layout/Container.js';
+export * from './layout/Stack.js';
+export * from './layout/Grid.js';
+export * from './layout/PageHeader.js';
 
 // Shell & Navigation Components
-export * from './shell/DashboardLayout';
-export * from './shell/Sidebar';
-export * from './shell/TopNavigation';
-export * from './shell/UserMenu';
-export * from './shell/WorkspaceSelector';
-export * from './shell/Breadcrumbs';
-export * from './shell/NotificationsArea';
-export * from './navigation/navigation';
+export * from './shell/DashboardLayout.js';
+export * from './shell/Sidebar.js';
+export * from './shell/TopNavigation.js';
+export * from './shell/UserMenu.js';
+export * from './shell/WorkspaceSelector.js';
+export * from './shell/Breadcrumbs.js';
+export * from './shell/NotificationsArea.js';
+export * from './navigation/navigation.js';
 
 // Shell States & Auth UX
-export * from './states/LoadingState';
-export * from './states/ErrorState';
-export * from './states/UnauthorizedState';
-export * from './auth/AnonymousState';
-export * from './auth/AuthenticatedState';
+export * from './states/LoadingState.js';
+export * from './states/ErrorState.js';
+export * from './states/UnauthorizedState.js';
+export * from './auth/AnonymousState.js';
+export * from './auth/AuthenticatedState.js';
