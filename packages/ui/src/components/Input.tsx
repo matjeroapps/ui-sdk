@@ -13,13 +13,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputId = id || React.useId();
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%' }}>
         {label && (
           <label
             htmlFor={inputId}
             style={{
               fontSize: '13px',
-              fontWeight: 500,
+              fontWeight: 600,
+              fontFamily: 'var(--font-body)',
+              letterSpacing: '0.04em',
               color: 'var(--color-foreground)',
             }}
           >
@@ -52,21 +54,24 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             disabled={disabled}
             aria-invalid={Boolean(error)}
+            aria-describedby={error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined}
             style={{
               width: '100%',
               height: '40px',
-              paddingLeft: leftIcon ? '38px' : '12px',
-              paddingRight: rightIcon ? '38px' : '12px',
+              paddingLeft: leftIcon ? '40px' : '12px',
+              paddingRight: rightIcon ? '40px' : '12px',
               fontSize: '14px',
-              fontFamily: 'var(--font-sans)',
+              fontFamily: 'var(--font-body)',
+              fontFeatureSettings: '"tnum"',
               backgroundColor: 'var(--color-input)',
               color: 'var(--color-foreground)',
-              border: `1px solid ${error ? 'var(--color-destructive)' : 'var(--color-border)'}`,
-              borderRadius: 'var(--radius-md)',
+              border: `1px solid ${error ? 'var(--color-destructive)' : 'var(--color-input-border)'}`,
+              borderRadius: 'var(--radius-sm)',
               outline: 'none',
               transition: 'var(--transition-fast)',
-              opacity: disabled ? 0.6 : 1,
+              opacity: disabled ? 0.5 : 1,
               cursor: disabled ? 'not-allowed' : 'text',
+              boxSizing: 'border-box',
               ...style,
             }}
             className={`matjer-input ${className}`}
@@ -86,11 +91,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error ? (
-          <span style={{ fontSize: '12px', color: 'var(--color-destructive)' }} role="alert">
+          <span id={`${inputId}-error`} style={{ fontSize: '12px', color: 'var(--color-destructive)' }} role="alert">
             {error}
           </span>
         ) : helperText ? (
-          <span style={{ fontSize: '12px', color: 'var(--color-muted-foreground)' }}>
+          <span id={`${inputId}-helper`} style={{ fontSize: '12px', color: 'var(--color-muted-foreground)' }}>
             {helperText}
           </span>
         ) : null}

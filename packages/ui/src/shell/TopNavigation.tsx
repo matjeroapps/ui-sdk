@@ -13,6 +13,8 @@ export interface TopNavigationProps {
   notifications?: Notification[];
   user?: UserMenuProps['user'];
   onSignOut?: () => void;
+  onProfileClick?: () => void;
+  onSettingsClick?: () => void;
   dir?: 'ltr' | 'rtl';
   onToggleDir?: () => void;
   theme?: 'dark' | 'light';
@@ -27,6 +29,8 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   notifications,
   user,
   onSignOut,
+  onProfileClick,
+  onSettingsClick,
   dir = 'ltr',
   onToggleDir,
   theme = 'dark',
@@ -72,7 +76,12 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
 
         <NotificationsArea notifications={notifications} />
 
-        <UserMenu user={user} onSignOut={onSignOut} />
+        <UserMenu 
+          user={user} 
+          onSignOut={onSignOut}
+          onProfileClick={onProfileClick}
+          onSettingsClick={onSettingsClick}
+        />
       </div>
     </header>
   );
