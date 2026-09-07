@@ -1,8 +1,8 @@
-name: CI
+name: CI & Publish
 
 on:
   push:
-    branches: [main, feature/ui-sdk-foundation]
+    branches: [main, feature/*]
   pull_request:
 
 jobs:
@@ -18,3 +18,21 @@ jobs:
       - run: npm run typecheck
       - run: npm run test
       - run: npm run build
+
+  publish:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm run build
+      - name: Publish to npmjs.org
+        run: npm publish --workspace=packages/ui --access public || echo "Package already published or version unchanged"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_API_KEY }}
+
