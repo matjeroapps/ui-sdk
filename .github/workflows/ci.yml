@@ -32,7 +32,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Publish to npmjs.org
-        run: npm publish --workspace=packages/ui --access public || echo "Package already published or version unchanged"
+        run: npm publish --workspace=packages/ui --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_API_KEY }}
 
